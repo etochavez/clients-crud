@@ -88,6 +88,22 @@ or
   ./vendor/bin/sail up
 ```
 
+Migrate the database
+
+```bash
+  ./vendor/bin/sail artisan migrate
+```
+
+npm needs to be installed
+
+```bash
+  ./vendor/bin/sail npm install
+```
+
+```bash
+  ./vendor/bin/sail npm run build
+```
+
 
 ## Route
 To access use: http:localhost/clients
