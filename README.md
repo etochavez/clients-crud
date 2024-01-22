@@ -16,6 +16,7 @@ The project is a Laravel-based client management system designed for businesses 
 - Sorting: Users can sort the client list based on different criteria, providing flexibility in data presentation.
 
 
+
 ## Prerequisites
 
 Before you begin, ensure that you have Docker installed on your machine. Laravel Sail uses Docker to manage development environments efficiently.
@@ -24,6 +25,10 @@ Before you begin, ensure that you have Docker installed on your machine. Laravel
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your `.env` file:
+
+```bash
+  cp .env.example .env
+```
 
 - `APP_KEY`
 - `APP_URL`
@@ -45,13 +50,32 @@ DB_PASSWORD=password
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/etochavez/clients-crud.git
+```
+or
+```bash
+git clone git@github.com:etochavez/clients-crud.git
 ```
 
 Go to the project directory
 
 ```bash
   cd clients-crud
+```
+
+To set up the project and generate the `vendor` folder, you need to run the following Docker command using Laravel Sail:
+
+```bash
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v $(pwd):/opt \
+    -w /opt \
+    laravelsail/php80-composer:latest \
+    composer install --ignore-platform-reqs
+```
+
+```bash
+  ./vendor/bin/sail artisan key:generate
 ```
 
 Start the server
@@ -63,6 +87,11 @@ or
 ```bash
   ./vendor/bin/sail up
 ```
+
+
+## Route
+To access use: http:localhost/clients
+
 
 
 ## Running Tests
